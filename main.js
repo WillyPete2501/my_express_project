@@ -18,19 +18,6 @@ app.post('/', function (req, res) {
   res.send('post functions check')
 })
 
-app.get('/:num', (req, res, next) => {
-  const num = req.params.num
-  if (!Number(num)) {
-    next({ status: 400, message: 'Please enter a number!' })
-  } else {
-    res.json({ message: `${num} is a great number.` })
-  }
-})
-
-app.use((err, req, res, next) => {
-  res.status(err.status).json({ error: err })
-})
-
 app.listen(PORT, function () {
   console.log(`listen functions check ${PORT}`)
 })
